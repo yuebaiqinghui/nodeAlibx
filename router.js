@@ -1,6 +1,7 @@
 var express = require('express')
 var pagesController = require('./controllers/pagesController')
 var userController = require('./controllers/userController')
+var cateController = require('./controllers/cateController')
 
 var router = express.Router()
 
@@ -25,5 +26,14 @@ router.get('/admin',pagesController.getAdminPage)
 
 //用户处理
       .post('/login',userController.login)
+//分类管理处理
+      .get('/getCategories',cateController.getAllCateList)
+      .post('/updateCategories',cateController.updateCategories)
+      .post('/addCategories',cateController.addCategories)
+      .get('/delCategoryById',cateController.delCategoryById)
+      .post('/delCategories',cateController.delCategories)
+
+
+
       
 module.exports = router

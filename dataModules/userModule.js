@@ -1,11 +1,4 @@
-var mysql = require('mysql')
-
-var connection = mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'root',
-    database:'baixiu'
-})
+var connection = require('./connect')
 
 exports.getUserByEmail = (email,callback) => {
     var sql = 'select * from users where email = ?'
