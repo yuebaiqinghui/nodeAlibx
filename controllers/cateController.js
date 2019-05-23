@@ -1,7 +1,7 @@
-var cateController = require('../dataModules/cateModule')
+var cateModule = require('../dataModules/cateModule')
 var common = require('./common')
 exports.getAllCateList = (req, res) => {
-    cateController.getAllList((err, data) => {
+    cateModule.getAllList((err, data) => {
         if (err) {
             res.end('404')
         } else {
@@ -13,7 +13,7 @@ exports.getAllCateList = (req, res) => {
 exports.updateCategories = (req, res) => {
     var obj = req.body
     // console.log(obj)
-    cateController.updateCategories(obj, err => {
+    cateModule.updateCategories(obj, err => {
         if (err) {
             res.json({
                 code: 201,
@@ -30,7 +30,7 @@ exports.updateCategories = (req, res) => {
 exports.addCategories = (req,res) => {
     var obj = req.body
     // console.log(obj)
-    cateController.addCategories(obj, err => {
+    cateModule.addCategories(obj, err => {
         if (err) {
             res.json({
                 code: 201,
@@ -48,7 +48,7 @@ exports.addCategories = (req,res) => {
 exports.delCategoryById = (req,res) => {
     var id = common.getParameter(req.url).id
     // console.log(id)
-    cateController.delCategoryById(id,err=>{
+    cateModule.delCategoryById(id,err=>{
         if (err) {
             res.json({
                 code: 201,
@@ -67,7 +67,7 @@ exports.delCategories = (req,res) => {
     // var newArr = arr.map(function(item){
     //     return Number.parseInt(item)
     // })
-    cateController.delCategories(arr,err=>{
+    cateModule.delCategories(arr,err=>{
         // console.log(newArr)
         // console.log(req.body['arr[]'])
         if (err) {

@@ -2,6 +2,8 @@ var express = require('express')
 var pagesController = require('./controllers/pagesController')
 var userController = require('./controllers/userController')
 var cateController = require('./controllers/cateController')
+var postController = require('./controllers/postController')
+var uploadController = require('./controllers/uploadController')
 
 var router = express.Router()
 
@@ -32,7 +34,16 @@ router.get('/admin',pagesController.getAdminPage)
       .post('/addCategories',cateController.addCategories)
       .get('/delCategoryById',cateController.delCategoryById)
       .post('/delCategories',cateController.delCategories)
+//文章管理
+      .get('/getAllPostList',postController.getAllPostList)
+      .get('/getPostById',postController.getPostById)
+      .post('/addPost',postController.addPost)
+      .post('/editPostById',postController.editPostById)
+      .get('/delPostById',postController.delPostById)
+      .post('/delPosts',postController.delPosts)
 
+//上传文件
+      .post('/uploadFile',uploadController.doUpload)
 
 
       
